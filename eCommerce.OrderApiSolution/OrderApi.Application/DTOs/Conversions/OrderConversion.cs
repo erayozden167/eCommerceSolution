@@ -30,6 +30,7 @@ namespace OrderApi.Application.DTOs.Conversions
                 var _orders = Orders!.Select(o => new OrderDTO(o.Id, o.ProductId, o.ClientId, o.PurchaseQuantity, o.OrderDate));
                 return (null, _orders);
             }
+            return (null, null);
         }
     }
 }
