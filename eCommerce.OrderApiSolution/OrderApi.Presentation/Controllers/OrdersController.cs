@@ -30,7 +30,7 @@ namespace OrderApi.Presentation.Controllers
             var (_order, _) = OrderConversion.FromEntity(order, null);
             return Ok(_order);
         }
-        [HttpGet("details/{orderId:int}")]
+        [HttpGet("details/{id:int}")]
         public async Task<ActionResult<OrderDetailDTO>> GetOrderDetail(int id) 
         {
             if (id <= 0) return BadRequest("Invalid data provided");

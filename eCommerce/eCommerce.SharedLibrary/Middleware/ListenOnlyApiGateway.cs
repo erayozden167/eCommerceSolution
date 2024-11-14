@@ -10,12 +10,12 @@ namespace eCommerce.SharedLibrary.Middleware
             var header = context.Request.Headers["Api-Gateway"];
 
             //if null, its not from gateway
-            if (header.FirstOrDefault() is null)
-            {
-                context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
-                await context.Response.WriteAsync("Sorry, service is unavalible");
-                return;
-            }
+            //if (header.FirstOrDefault() is null)
+            //{
+            //    context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+            //    await context.Response.WriteAsync("Sorry, service is unavalible");
+            //    return;
+            //}
             await next(context);
         }
     }

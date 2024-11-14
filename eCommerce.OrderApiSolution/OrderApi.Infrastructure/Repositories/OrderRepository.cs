@@ -38,7 +38,7 @@ namespace OrderApi.Infrastructure.Repositories
                 var order = await GetAsync(entity.Id);
                 if (order is null)
                     return new Response(false, "Order not found.");
-                context.Orders.Remove(entity);
+                context.Orders.Remove(order);
                 await context.SaveChangesAsync();
                 return new Response(true, "Order successfully deleted.");
             }
@@ -106,7 +106,7 @@ namespace OrderApi.Infrastructure.Repositories
             {
                 LogException.LogExceptions(ex);
                 //scary-free message
-                throw new Exception("Error occured while retrieving order.");
+                throw new Exception("Error occured while retrieving orders.");
             }
         }
 
