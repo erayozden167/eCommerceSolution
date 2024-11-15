@@ -63,7 +63,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
             var getUser = await GetUserByEmail(appUserDTO.Email);
-            if (getUser is null)
+            if (getUser is not null)
                 return new Response(false, $"User already exist");
 
             var result = context.Users.Add(new AppUserEntity()
